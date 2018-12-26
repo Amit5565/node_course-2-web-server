@@ -1,6 +1,8 @@
 var express=require('express');
 var app=express();
 var hbs=require('hbs');
+
+var port=process.env.PORT || 4000;
 hbs.registerPartials(__dirname+"/views/partials");
 var fs=require('fs');
 app.set("view engine","hbs");
@@ -40,6 +42,6 @@ app.get("/",(req,res)=>{
 app.get("/about",(req,res)=>{
   res.render("about",{title:"About Page"});
 })
-app.listen(4000,()=>{
-  console.log("App is running");
+app.listen(port,()=>{
+  console.log("App is running on "+port);
 })
